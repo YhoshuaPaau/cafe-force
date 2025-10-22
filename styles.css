@@ -9,5 +9,5 @@ button { background-color: #28a745; color: white; padding: 10px; border: none; c
 table { width: 80%; margin: auto; border-collapse: collapse; }
 th, td { border: 1px solid #ddd; padding: 8px; text-align: center; }
 th { background-color: #f2f2f2; }
-.up { color: green; } /* Para cambio positivo */
-.down { color: red; } /* Para cambio negativo */
+.up { color: green; }
+.down { color: red; }

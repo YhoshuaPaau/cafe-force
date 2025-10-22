@@ -15,18 +15,18 @@
         <p>Eslogan: Despierta la Fuerza en tu Código</p>
     </header>
     <section id="dashboard">
-        <h2>Precios Actuales del Café</h2>
+        <h2>Precios Actuales del Café (Globales)</h2>
         <table id="precios-table">
             <thead>
                 <tr>
                     <th>Tipo de Café</th>
-                    <th>Precio Anterior (USD/lb)</th>
-                    <th>Precio Actual (USD/lb)</th>
+                    <th>Precio Anterior (Q/lb)</th>
+                    <th>Precio Actual (Q/lb)</th>
                     <th>Cambio</th>
                 </tr>
             </thead>
             <tbody>
-                <!-- Filas se agregan dinámicamente con JS -->
+                <!-- Filas se agregan dinámicamente -->
             </tbody>
         </table>
         <h2>Dashboard de Predicción</h2>
@@ -38,12 +38,12 @@
                 <option value="libras">Libras</option>
             </select><br>
             <label>Tipo de Café:</label>
-            <select id="tipo">
+            <select id="tipo" onchange="actualizarMunicipio()">
                 <option>Arabica</option>
                 <option>Robusta</option>
             </select><br>
             <label>Ubicación (Municipio en Alta Verapaz):</label>
-            <select id="ubicacion" onchange="actualizarClima()">
+            <select id="ubicacion" onchange="actualizarMunicipio()">
                 <option value="Cobán">Cobán</option>
                 <option value="Santa Cruz Verapaz">Santa Cruz Verapaz</option>
                 <option value="San Cristóbal Verapaz">San Cristóbal Verapaz</option>
@@ -62,9 +62,8 @@
                 <option value="Santa Catalina La Tinta">Santa Catalina La Tinta</option>
                 <option value="Raxruhá">Raxruhá</option>
             </select><br>
-            <label>Temperatura (°C):</label><input type="number" id="temp" readonly><br>
-            <label>Lluvia (mm):</label><input type="number" id="lluvia" readonly><br>
-            <button type="button" onclick="actualizarClima()">Obtener Clima Actual</button><br>
+            <label>Temperatura (°C, promedio):</label><input type="number" id="temp" readonly><br>
+            <label>Lluvia (mm mensual, promedio):</label><input type="number" id="lluvia" readonly><br>
             <button type="button" onclick="predecirPrecio()">Predecir Precio</button>
         </form>
         <div id="resultado"></div>

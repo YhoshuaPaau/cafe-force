@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CafeForce - ForceNova Tech</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Logo ForceNova Tech" width="150">
+        <h1>CafeForce: Predicción de Precios de Café</h1>
+        <p>Eslogan: Despierta la Fuerza en tu Código</p>
+    </header>
+    <section id="dashboard">
+        <h2>Precios Actuales del Café</h2>
+        <table id="precios-table">
+            <thead>
+                <tr>
+                    <th>Tipo de Café</th>
+                    <th>Precio Anterior (USD/lb)</th>
+                    <th>Precio Actual (USD/lb)</th>
+                    <th>Cambio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Filas se agregan dinámicamente con JS -->
+            </tbody>
+        </table>
+        <h2>Dashboard de Predicción</h2>
+        <form id="input-form">
+            <label>Cantidad de Cosecha:</label><input type="number" id="cosecha"><br>
+            <label>Unidad:</label>
+            <select id="unidad">
+                <option value="quintales">Quintales</option>
+                <option value="libras">Libras</option>
+            </select><br>
+            <label>Tipo de Café:</label>
+            <select id="tipo">
+                <option>Arabica</option>
+                <option>Robusta</option>
+            </select><br>
+            <label>Ubicación (Municipio en Alta Verapaz):</label>
+            <select id="ubicacion" onchange="actualizarClima()">
+                <option value="Cobán">Cobán</option>
+                <option value="Santa Cruz Verapaz">Santa Cruz Verapaz</option>
+                <option value="San Cristóbal Verapaz">San Cristóbal Verapaz</option>
+                <option value="Tactic">Tactic</option>
+                <option value="Tamahú">Tamahú</option>
+                <option value="Tucurú">Tucurú</option>
+                <option value="Panzós">Panzós</option>
+                <option value="Senahú">Senahú</option>
+                <option value="San Pedro Carchá">San Pedro Carchá</option>
+                <option value="San Juan Chamelco">San Juan Chamelco</option>
+                <option value="Lanquín">Lanquín</option>
+                <option value="Cahabón">Cahabón</option>
+                <option value="Chisec">Chisec</option>
+                <option value="Chahal">Chahal</option>
+                <option value="Fray Bartolomé de las Casas">Fray Bartolomé de las Casas</option>
+                <option value="Santa Catalina La Tinta">Santa Catalina La Tinta</option>
+                <option value="Raxruhá">Raxruhá</option>
+            </select><br>
+            <label>Temperatura (°C):</label><input type="number" id="temp" readonly><br>
+            <label>Lluvia (mm):</label><input type="number" id="lluvia" readonly><br>
+            <button type="button" onclick="actualizarClima()">Obtener Clima Actual</button><br>
+            <button type="button" onclick="predecirPrecio()">Predecir Precio</button>
+        </form>
+        <div id="resultado"></div>
+        <canvas id="grafico" width="400" height="200"></canvas>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>
